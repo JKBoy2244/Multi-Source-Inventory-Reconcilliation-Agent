@@ -16,6 +16,7 @@ The implementation uses only Python's standard library. No API keys, accounts, p
 
 The default demo (SKU-RED-CHAIR) does this:
 
+```text
 warehouse -> reports 7 available
            |
            +-- 7 <= low-stock threshold (10)
@@ -33,6 +34,7 @@ ecommerce -> reports 9 available
                apply authority rules
 
 final     -> trust warehouse = 7
+```
 
 That is not a fixed warehouse -> ecommerce -> supplier script. A second fixture (SKU-BLUE-LAMP) produces a different order:
 
@@ -42,6 +44,7 @@ A third fixture (SKU-GREEN-MUG) makes warehouse deliberately stale, so e-commerc
 
 # Repository layout
 
+```text
 inventory-reconciliation-agent/
 ├── README.md
 ├── run_demo.py
@@ -53,6 +56,7 @@ inventory-reconciliation-agent/
 │   └── models.py
 └── tests/
     └── test_agent.py
+```
 
 # What each file does
 
