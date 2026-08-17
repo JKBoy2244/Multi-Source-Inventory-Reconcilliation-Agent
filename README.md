@@ -229,19 +229,60 @@ high stock changes the second query to e-commerce;
 
 stale warehouse data can lose authority to e-commerce.
 
-# Easier method to run the program if above isn't compatible
+# Easier Method to Run the Program
 
-- 1). Download the zip first on the github page
+*Use this method if the instructions above are not compatible with your device or setup.*
 
-- 2). Go to the file explorer, then click the zip and click extract all
+If you're completely new to GitHub, Python, or using a terminal, don't worry — follow each step below in order.
 
-- 3). Once you click extract all, name the file whatever you want although preferably the project name and then click extract again
+# 1). Download the ZIP file from GitHub
 
-- 4). Open command prompt/terminal on your device whether its laptop or PC
+On the GitHub project page, click the option to **download the project as a ZIP file**.
 
-- 5). On the command terminal, first type exactly: cd /d "%USERPROFILE%\Downloads\Multi-Source-Inventory-Reconcilliation-Agent-main\Multi-Source-Inventory-Reconcilliation-Agent-main" (or whatever name you saved it as - that's just my case)
+Once downloaded, the ZIP file should normally appear in your **Downloads** folder.
 
-- 6). Then press enter and type python run_demo.py exactly this and finally press enter. The project should now be running
+# 2). Extract the ZIP file
+
+Open **File Explorer** and go to your **Downloads** folder.
+
+Find the ZIP file you just downloaded, click it, and then select **Extract All**.
+
+# 3). Choose where to extract the project
+
+Once you click **Extract All**, you can name the folder whatever you want, although using the **project name** is recommended so that it is easier to recognise later.
+
+After choosing the folder name/location, click **Extract** again.
+
+# 4). Open Command Prompt or Terminal
+
+Open **Command Prompt** or **Terminal** on your device, whether you're using a laptop or PC.
+
+> **Beginner tip:** On Windows, you can press the **Windows key**, type **Command Prompt**, and press **Enter**.
+
+# 5). Navigate to the project folder
+
+In the command terminal, first type **exactly**:
+
+```text
+cd /d "%USERPROFILE%\Downloads\Multi-Source-Inventory-Reconcilliation-Agent-main\Multi-Source-Inventory-Reconcilliation-Agent-main"
+```
+
+Then press **Enter**.
+
+> **Important:** The command above is based on where **I saved the project on my device**. If you saved or renamed the folder differently, replace the folder name/path with whatever you used.
+
+# 6). Run the program
+
+Once you are inside the correct project folder, type **exactly**:
+
+```text
+python run_demo.py
+```
+
+Finally, press **Enter**.
+
+The project should now be running.
+
 
 # Optional runs that prove it is adaptive
 
