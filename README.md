@@ -229,6 +229,20 @@ high stock changes the second query to e-commerce;
 
 stale warehouse data can lose authority to e-commerce.
 
+# Easier method to run the program if above isn't compatible
+
+- 1). Download the zip first on the github page
+
+- 2). Go to the file explorer, then click the zip and click extract all
+
+- 3). Once you click extract all, name the file whatever you want although preferably the project name and then click extract again
+
+- 4). Open command prompt/terminal on your device whether its laptop or PC
+
+- 5). On the command terminal, first type exactly: cd /d "%USERPROFILE%\Downloads\Multi-Source-Inventory-Reconcilliation-Agent-main\Multi-Source-Inventory-Reconcilliation-Agent-main" (or whatever name you saved it as - that's just my case)
+
+- 6). Then press enter and type python run_demo.py exactly this and finally press enter. The project should now be running
+
 # Optional runs that prove it is adaptive
 
 High-stock path:
