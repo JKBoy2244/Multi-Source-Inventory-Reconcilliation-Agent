@@ -1,4 +1,4 @@
-**Multi-source inventory reconciliation agent**
+# Multi-source inventory reconciliation agent
 
 A small, deterministic Python agent that reconciles one SKU across three independent local HTTP APIs:
 
@@ -12,7 +12,7 @@ It detects discrepancies, decides which source is authoritative using explicit r
 
 The implementation uses only Python's standard library. No API keys, accounts, packages, cloud services, databases, or internet access are required.
 
-#Why this meets the assignment
+# Why this meets the assignment
 
 The default demo (SKU-RED-CHAIR) does this:
 
@@ -40,7 +40,7 @@ warehouse -> ecommerce -> supplier
 
 A third fixture (SKU-GREEN-MUG) makes warehouse deliberately stale, so e-commerce becomes authoritative.
 
-#Repository layout
+# Repository layout
 
 inventory-reconciliation-agent/
 ├── README.md
@@ -54,7 +54,7 @@ inventory-reconciliation-agent/
 └── tests/
     └── test_agent.py
 
-**What each file does**
+# What each file does
 
 run_demo.py — one-command entry point for the video/demo.
 
@@ -70,11 +70,11 @@ inventory_agent/__init__.py — makes the main classes easy to import.
 
 tests/test_agent.py — end-to-end tests that prove the discrepancy case, adaptive query order, and stale-source rule.
 
-**Authority rules**
+# Authority rules
 
 The rules are deliberately explicit and deterministic.
 
-**Rule 1 — health and freshness first**
+# Rule 1 — health and freshness first
 
 A source is eligible only if:
 
@@ -84,7 +84,7 @@ its observation is no more than 300 seconds old.
 
 If a source is stale or unhealthy, it cannot win.
 
-**Rule 2 — domain priority for our own sellable stock**
+# Rule 2 — domain priority for our own sellable stock
 
 Among eligible sources:
 
@@ -98,13 +98,13 @@ E-commerce is customer-facing and useful, but it can lag warehouse movements.
 
 Supplier tells us what the supplier can ship, not what is physically in our warehouse, so it is advisory for our own stock count.
 
-**Rule 3 — discrepancy definition**
+# Rule 3 — discrepancy definition
 
 After normalization, any difference greater than 0 units is a discrepancy.
 
 The threshold is intentionally strict for a small demo. A production system would normally configure this by SKU/category.
 
-**Adaptive planning rules**
+# Adaptive planning rules
 
 After the warehouse response:
 
@@ -122,9 +122,9 @@ if quantities agree -> stop early because another request is unnecessary.
 
 That means the agent decides what to check next from what it just learned.
 
-**Run it — simplest possible instructions**
+# Run it — simplest possible instructions
 
-**1. Check Python**
+# 1. Check Python
 
 Use Python 3.11 or newer.
 
@@ -132,7 +132,7 @@ python --version
 
 If your machine uses python3 instead of python, use python3 in every command below.
 
-**2. Open a terminal in this repository folder**
+# 2. Open a terminal in this repository folder
 
 You should be in the folder containing run_demo.py.
 
@@ -144,7 +144,7 @@ It should print:
 
 True
 
-**3. Run the end-to-end demo**
+# 3. Run the end-to-end demo
 
 python run_demo.py
 
@@ -185,7 +185,7 @@ authoritative_quantity = 7
 
 The exact temporary localhost port numbers and elapsed milliseconds will vary.
 
-**4. Read the audit log**
+# 4. Read the audit log
 
 Open:
 
@@ -207,7 +207,7 @@ evidence — the data used for that decision.
 
 This is the main evidence that a reviewer can audit why the agent made each choice.
 
-**5. Run the tests**
+# 5. Run the tests
 
 python -m unittest discover -s tests -v
 
@@ -225,7 +225,7 @@ high stock changes the second query to e-commerce;
 
 stale warehouse data can lose authority to e-commerce.
 
-**Optional runs that prove it is adaptive**
+# Optional runs that prove it is adaptive
 
 High-stock path:
 
