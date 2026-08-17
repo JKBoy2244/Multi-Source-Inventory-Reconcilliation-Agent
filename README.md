@@ -277,7 +277,7 @@ Once you are inside the correct project folder, type **exactly**:
 
 ```text
 python run_demo.py
-```text
+```
 
 Finally, press **Enter**.
 
@@ -287,7 +287,7 @@ The project should now be running.
 
 ```text
 python -m unittest discover -s tests -v
-```text
+```
 
 # Optional runs that prove it is adaptive
 
