@@ -285,9 +285,15 @@ The project should now be running.
 
 # 7). Don't forget the tests 
 
+If you want to compile the tests, type **exactly"":
+
 ```text
 python -m unittest discover -s tests -v
 ```
+Finally, press Enter.
+
+The tests should run
+
 
 # Optional runs that prove it is adaptive
 
