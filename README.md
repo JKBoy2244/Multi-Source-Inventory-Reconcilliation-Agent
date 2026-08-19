@@ -324,7 +324,9 @@ The tests should run
 
 High-stock path:
 
+```text
 python run_demo.py SKU-BLUE-LAMP
+```
 
 Expected order:
 
