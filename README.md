@@ -228,9 +228,9 @@ This is the main evidence that a reviewer can audit why the agent made each choi
 
 python -m unittest discover -s tests -v
 
-You should see three tests ending in:
+You should see eleven tests ending in:
 
-OK
+OK (they all passed - 11/11)
 
 The tests prove:
 
