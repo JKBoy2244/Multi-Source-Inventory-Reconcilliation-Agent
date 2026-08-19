@@ -145,7 +145,10 @@ That means the agent decides what to check next from what it just learned.
 
 Use Python 3.11 or newer.
 
+
+```text
 python --version
+```
 
 If your machine uses python3 instead of python, use python3 in every command below.
 
