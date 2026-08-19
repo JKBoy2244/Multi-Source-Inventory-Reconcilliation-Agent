@@ -64,27 +64,27 @@ inventory-reconciliation-agent/
 
 # What each file does
 
-run_demo.py — one-command entry point for the video/demo.
+- run_demo.py — one-command entry point for the video/demo.
 
-inventory_agent/mock_sources.py — starts three separate localhost HTTP API servers on three separate ports. Each API has a different response schema.
+- inventory_agent/mock_sources.py — starts three separate localhost HTTP API servers on three separate ports. Each API has a different response schema.
 
-inventory_agent/agent.py — HTTP calls, schema normalization, adaptive next-step planning, discrepancy detection, freshness checks, and authority selection.
+- inventory_agent/agent.py — HTTP calls, schema normalization, adaptive next-step planning, discrepancy detection, freshness checks, and authority selection.
 
-inventory_agent/audit.py — writes one JSON object per decision step to logs/reconciliation.jsonl.
+- inventory_agent/audit.py — writes one JSON object per decision step to logs/reconciliation.jsonl.
 
-inventory_agent/models.py — simple dataclasses for normalized observations and the final result.
+- inventory_agent/models.py — simple dataclasses for normalized observations and the final result.
 
-inventory_agent/__init__.py — makes the main classes easy to import.
+- inventory_agent/__init__.py — makes the main classes easy to import.
 
-tests/test_agent.py — end-to-end tests that prove the discrepancy case, adaptive query order, and stale-source rule.
+- tests/test_agent.py — end-to-end tests that prove the discrepancy case, adaptive query order, and stale-source rule.
 
-tests/test_agent_cases.py — focused edge-case tests for the low-stock threshold boundary and third-source confirmation when the first two quantities match.
+- tests/test_agent_cases.py — focused edge-case tests for the low-stock threshold boundary and third-source confirmation when the first two quantities match.
 
-tests/test_audit.py — tests that audit records are structured, timestamped, ordered, and written as valid JSONL matching the in-memory records.
+- tests/test_audit.py — tests that audit records are structured, timestamped, ordered, and written as valid JSONL matching the in-memory records.
 
-tests/test_mock_sources.py — integration tests that verify the three distinct local API schemas, deterministic inventory responses, separate ports, and 404 handling for unknown SKUs.
+- tests/test_mock_sources.py — integration tests that verify the three distinct local API schemas, deterministic inventory responses, separate ports, and 404 handling for unknown SKUs.
 
-tests/test_model.py — unit tests that verify InventoryObservation and ReconciliationResult serialize correctly into plain Python dictionaries, including nested observations.
+- tests/test_model.py — unit tests that verify InventoryObservation and ReconciliationResult serialize correctly into plain Python dictionaries, including nested observations.
 
 
 # Authority rules
@@ -95,25 +95,25 @@ The rules are deliberately explicit and deterministic.
 
 A source is eligible only if:
 
-its health flag says it is healthy/reachable; and
+- its health flag says it is healthy/reachable; and
 
-its observation is no more than 300 seconds old.
+- its observation is no more than 300 seconds old.
 
-If a source is stale or unhealthy, it cannot win.
+- If a source is stale or unhealthy, it cannot win.
 
 # Rule 2 — domain priority for our own sellable stock
 
 Among eligible sources:
 
-warehouse > ecommerce > supplier
+- warehouse > ecommerce > supplier
 
 Why:
 
-Warehouse knows physical on_hand - reserved, so it is the strongest source for what we actually own now.
+- Warehouse knows physical on_hand - reserved, so it is the strongest source for what we actually own now.
 
-E-commerce is customer-facing and useful, but it can lag warehouse movements.
+- E-commerce is customer-facing and useful, but it can lag warehouse movements.
 
-Supplier tells us what the supplier can ship, not what is physically in our warehouse, so it is advisory for our own stock count.
+- Supplier tells us what the supplier can ship, not what is physically in our warehouse, so it is advisory for our own stock count.
 
 # Rule 3 — discrepancy definition
 
@@ -125,19 +125,19 @@ The threshold is intentionally strict for a small demo. A production system woul
 
 After the warehouse response:
 
-if warehouse is stale/unhealthy -> query e-commerce next;
+- if warehouse is stale/unhealthy -> query e-commerce next;
 
-else if warehouse available quantity is <= 10 -> query supplier next;
+- else if warehouse available quantity is <= 10 -> query supplier next;
 
-else -> query e-commerce next.
+- else -> query e-commerce next.
 
 After two sources:
 
-if quantities disagree -> query the remaining third source;
+- if quantities disagree -> query the remaining third source;
 
-if quantities agree -> stop early because another request is unnecessary.
+- if quantities agree -> stop early because another request is unnecessary.
 
-That means the agent decides what to check next from what it just learned.
+- That means the agent decides what to check next from what it just learned.
 
 # Run it — simplest possible instructions
 
