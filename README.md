@@ -55,7 +55,11 @@ inventory-reconciliation-agent/
 │   ├── mock_sources.py
 │   └── models.py
 └── tests/
-    └── test_agent.py
+    ├── test_agent.py
+    ├── test_agent_cases.py
+    ├── test_audit.py
+    ├── test_mock_sources.py
+    └── test_model.py
 ```
 
 # What each file does
@@ -73,6 +77,15 @@ inventory_agent/models.py — simple dataclasses for normalized observations and
 inventory_agent/__init__.py — makes the main classes easy to import.
 
 tests/test_agent.py — end-to-end tests that prove the discrepancy case, adaptive query order, and stale-source rule.
+
+tests/test_agent_cases.py — focused edge-case tests for the low-stock threshold boundary and third-source confirmation when the first two quantities match.
+
+tests/test_audit.py — tests that audit records are structured, timestamped, ordered, and written as valid JSONL matching the in-memory records.
+
+tests/test_mock_sources.py — integration tests that verify the three distinct local API schemas, deterministic inventory responses, separate ports, and 404 handling for unknown SKUs.
+
+tests/test_model.py — unit tests that verify InventoryObservation and ReconciliationResult serialize correctly into plain Python dictionaries, including nested observations.
+
 
 # Authority rules
 
