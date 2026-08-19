@@ -332,7 +332,9 @@ warehouse -> ecommerce -> supplier
 
 Stale-warehouse path:
 
+```text
 python run_demo.py SKU-GREEN-MUG
+```
 
 Expected authority:
 
