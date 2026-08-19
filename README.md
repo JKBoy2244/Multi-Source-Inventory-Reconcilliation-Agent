@@ -155,7 +155,10 @@ You should be in the folder containing run_demo.py.
 
 Example check:
 
+
+```text
 python -c "from pathlib import Path; print(Path('run_demo.py').exists())"
+```
 
 It should print:
 
@@ -163,7 +166,10 @@ True
 
 # 3. Run the end-to-end demo
 
+
+```text
 python run_demo.py
+```
 
 No installation step is required.
 
@@ -226,7 +232,10 @@ This is the main evidence that a reviewer can audit why the agent made each choi
 
 # 5. Run the tests
 
+
+```text
 python -m unittest discover -s tests -v
+```
 
 You should see eleven tests ending in:
 
